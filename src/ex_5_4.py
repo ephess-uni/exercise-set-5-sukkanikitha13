@@ -17,5 +17,11 @@ input_file = data_dir / "ex_5_4-data.csv"
 output_file = output_dir / "ex_5_4-processed.csv"
 
 # Process the input data using numpy
+numpy_arr = np.loadtxt(input_file)
 
+neg_data = numpy_arr < 0
+
+numpy_arr[neg_data] = 0
+    
 # Save the result to output_file
+np.savetxt(output_file, numpy_arr)
