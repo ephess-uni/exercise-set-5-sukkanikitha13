@@ -22,4 +22,4 @@ if __name__ == "__main__":
     parser.add_argument('infile', help='This program prints the number of lines in infile.')
     args = arg.parser()
     filename_argument = args.infile
-    main(filename_argument)
+    print(main(filename_argument))
