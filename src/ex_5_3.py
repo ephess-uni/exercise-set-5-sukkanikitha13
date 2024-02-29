@@ -16,4 +16,22 @@ if __name__ == "__main__":
     # Tests will run your command using a system call.
     # To test your program with arguments, run it from the command line
     # (see README.md for more details)
-    pass
+    parser = ArgumentParser()
+    parser.add_argument('infile', 'outfile', help='This program applies a standard scale transform to the data in infile and writes it to outfile.')
+    args = parser.parse_args()
+    INFILE = args.infile
+    OUTFILE = args.outfile
+
+    # Complete the data processing steps using numpy here.
+    with open(INFILE,'r') as csv_file:
+        reader = csv.reader(csv_file)
+        data = list(reader)
+        numpy_array = np.array(data, dtype=float)
+        new_array = numpy_array - np.mean(numpy_array)
+
+        std_dev = np.std(new_array)
+        processed = new_array/std_dev
+
+    # Save the output to OUTFILE using numpy routines.
+        np.savetxt(OUTFILE, processed)
+
