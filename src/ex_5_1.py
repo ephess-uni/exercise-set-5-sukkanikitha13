@@ -20,6 +20,6 @@ if __name__ == "__main__":
     # (seeas README.md for more details)
     parser = argparse.ArgumentParser()
     parser.add_argument('infile', help='This program prints the number of lines in infile.')
-    args = arg.parser()
+    args = parser.parse_args()
     filename_argument = args.infile
-    print(main(filename_argument))
+    main(filename_argument)
