@@ -6,7 +6,7 @@ def line_count(infile):
     with open(infile, 'r') as f:
         for _ in f:
             no_of_lines += 1
-    return no_of_lines
+    print(no_of_lines)
 
 
 if __name__ == "__main__":
